@@ -7,6 +7,5 @@ npm install next@latest
 ## STEP 3:
 npm run dev
 
-##Run: localhost:3000.\
-
+##Open: http://localhost:3000
 
