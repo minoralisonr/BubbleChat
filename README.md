@@ -1,4 +1,4 @@
-# BubbleChat
+# BubbleChat 💬
 
 # STEP 1: 
 Run on powershell or command prompt:
