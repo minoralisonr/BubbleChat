@@ -1,0 +1,11 @@
+//jconfig.json
+//do not delete this file, it is used by the IDE to resolve path aliases
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

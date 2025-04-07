@@ -1,0 +1,305 @@
+/* Breathing button animation */
+@keyframes buttonBreathe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.02); /* Slightly smaller scale for subtlety */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+  }
+}
+
+/* Light mode styles */
+.page {
+  --primary-color: #b19cd9; /* Pastel lavender */
+  --accent-color: #6a1b9a; /* Deep purple for bubble borders */
+  --background-color: #f5f5f5; /* Light background */
+  --text-color: #333; /* Dark text */
+  --bubble-color: #b19cd9; /* Pastel lavender */
+  --bubble-border-color: #d599fb; /* Deep purple border */
+  --bubble-shine-color: rgba(255, 255, 255, 0.5); /* Shine effect */
+  --auth-container-bg: rgba(255, 255, 255, 0.9); /* Light auth container */
+  --footer-bg: rgba(245, 245, 245, 0.9); /* Light footer */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Dark mode styles */
+.page[data-theme="dark"] {
+  --background-color: #000000; /* Pure black background */
+  --text-color: #ffffff; /* Pure white text */
+  --bubble-color: #b19cd9; /* Retain bubble color */
+  --bubble-border-color: #d599fb; /* Retain bubble border color */
+  --bubble-shine-color: rgba(255, 255, 255, 0.5); /* Retain shine effect */
+  --auth-container-bg: rgba(0, 0, 0, 0.9); /* Dark auth container */
+  --footer-bg: rgba(0, 0, 0, 0.9); /* Dark footer */
+}
+
+/* Apply styles to specific elements */
+.title {
+  color: var(--text-color);
+}
+
+.authContainer {
+  background: var(--auth-container-bg);
+  color: var(--text-color);
+}
+
+.footer {
+  background: var(--footer-bg);
+  color: var(--text-color);
+}
+
+.bubble {
+  background: var(--bubble-color);
+  border-color: var(--bubble-border-color);
+}
+
+.submitButton {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Apply styles using CSS variables */
+.page {
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Ensure all text elements use the correct color */
+.page[data-theme="dark"] .title,
+.page[data-theme="dark"] .authContainer,
+.page[data-theme="dark"] .formToggle button,
+.page[data-theme="dark"] .input,
+.page[data-theme="dark"] .footer {
+  color: var(--text-color);
+}
+
+/* Ensure the auth container and footer have a dark background */
+.page[data-theme="dark"] .authContainer,
+.page[data-theme="dark"] .footer {
+  background: var(--auth-container-bg);
+}
+
+/* Bubbles and buttons retain their original colors */
+.page[data-theme="dark"] .bubble {
+  background: var(--bubble-color);
+  border-color: var(--bubble-border-color);
+}
+
+.page[data-theme="dark"] .submitButton {
+  background: var(--primary-color);
+  color: white;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.logoContainer {
+  text-align: center;
+}
+
+.title {
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.authContainer {
+  width: 100%;
+  max-width: 400px;
+  background: var(--auth-container-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px); /* Blur effect */
+}
+
+.formToggle {
+  display: flex;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.formToggle button {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-color);
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.formToggle button.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.formToggle button:hover {
+  transform: scale(1.05);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--auth-container-bg);
+  color: var(--text-color);
+}
+
+.input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(177, 156, 217, 0.3);
+}
+
+.error {
+  color: #e00;
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+}
+
+.submitButton {
+  padding: 0.75rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: buttonBreathe 3s infinite ease-in-out; /* Breathing effect */
+}
+
+.submitButton:hover {
+  background: #9f8ac7; /* Slightly darker lavender */
+  transform: scale(1.05);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--footer-bg);
+  backdrop-filter: blur(10px); /* Blur effect */
+}
+
+.footer a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* Glassy bubble animation */
+.bubble {
+  position: absolute;
+  background: var(--bubble-color);
+  border-radius: 50%;
+  animation: float 6s infinite ease-in-out;
+  box-shadow: 0 0 20px rgba(177, 156, 217, 0.5), 
+              0 0 40px rgba(177, 156, 217, 0.3); 
+  border: 2px solid var(--bubble-border-color); 
+}
+
+/* Shine effect on the upper right of each bubble */
+.bubble::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 20%;
+  height: 20%;
+  background: var(--bubble-shine-color);
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+  }
+}
+
+.bubble:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 5%;
+  animation-duration: 8s;
+}
+
+.bubble:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  top: 30%;
+  left: 80%;
+  animation-duration: 10s;
+}
+
+.bubble:nth-child(3) {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  left: 20%;
+  animation-duration: 12s;
+}
+
+.bubble:nth-child(4) {
+  width: 60px;
+  height: 60px;
+  top: 80%;
+  left: 70%;
+  animation-duration: 9s;
+}
+
+/* Dark mode toggle button */
+.themeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.themeToggle:hover {
+  background: var(--accent-color);
+}

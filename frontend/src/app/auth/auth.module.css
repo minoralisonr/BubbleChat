@@ -1,0 +1,106 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 40px;
+    background: linear-gradient(to bottom, #e4d4f5, #d3d3d3); /* Lavender to grey gradient */
+    position: relative; /* Allow positioning relative to the container */
+  }
+  
+  .left-side,
+  .right-side {
+    width: 100%;
+    padding: 40px;
+    background: linear-gradient(to bottom, #e4d4f5, #d3d3d3); /* Lavender to grey gradient */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensure sides are above background */
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333; /* Dark text for better contrast on lighter backgrounds */
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #666; /* Dark text for better contrast on lighter backgrounds */
+  }
+  
+  /* Auth Form Styles */
+  .Auth {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .Auth-box {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .authButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #4a9ecb;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 10; /* Ensure modal is above other content */
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .left-side,
+    .right-side {
+      width: 100%;
+      border-right: none;
+    }
+  }
+  
+  .acontainer {
+    width: 100%;
+  }
+  
